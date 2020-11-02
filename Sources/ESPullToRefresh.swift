@@ -314,14 +314,13 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         guard let scrollView = scrollView else {
             return
         }
-        
+        super.stop()
         // ignore observer
         self.ignoreObserver(true)
         
         self.animator.refreshAnimationEnd(view: self)
         let execute = {
             self.animator.refresh(view: self, stateDidChange: .pullToRefresh)
-            super.stop()
             scrollView.contentInset.top = self.scrollViewInsets.top
             self.previousOffset = scrollView.contentOffset.y
             // un-ignore observer
@@ -460,7 +459,7 @@ open class ESRefreshFooterView: ESRefreshComponent {
         guard let scrollView = scrollView else {
             return
         }
-        
+        super.stop()
         self.animator.refreshAnimationEnd(view: self)
         
         // Back state
@@ -469,7 +468,6 @@ open class ESRefreshFooterView: ESRefreshComponent {
             if self.noMoreData == false {
                 self.animator.refresh(view: self, stateDidChange: .pullToRefresh)
             }
-            super.stop()
         })
 
         // Stop deceleration of UIScrollView. When the button tap event is caught, you read what the [scrollView contentOffset].x is, and set the offset to this value with animation OFF.
