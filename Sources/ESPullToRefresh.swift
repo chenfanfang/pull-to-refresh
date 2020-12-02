@@ -314,7 +314,6 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         guard let scrollView = scrollView else {
             return
         }
-        super.stop()
         // ignore observer
         self.ignoreObserver(true)
         
@@ -329,6 +328,7 @@ open class ESRefreshHeaderView: ESRefreshComponent {
         
         // Back state
         scrollView.contentInset.top = self.scrollViewInsets.top
+        super.stop()
         if (previousOffset + scrollView.contentInset.top) < 0 {
             scrollView.contentOffset.y =  self.previousOffset
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
@@ -459,9 +459,8 @@ open class ESRefreshFooterView: ESRefreshComponent {
         guard let scrollView = scrollView else {
             return
         }
-        super.stop()
         self.animator.refreshAnimationEnd(view: self)
-        
+        super.stop()
         // Back state
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
         }, completion: { (finished) in

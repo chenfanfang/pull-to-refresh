@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
     s.name              = 'Eddid-ESPullToRefresh'
-    s.version           = '2.9.2.1'
+    s.version           = '2.9.2.3'
     s.summary           = 'An easy way to use pull-to-refresh and loading-more'
     s.description       = 'An easiest way to give pull-to-refresh and loading-more to any UIScrollView. Using swift!'
     s.homepage          = 'https://github.com/chenfanfang/pull-to-refresh'
