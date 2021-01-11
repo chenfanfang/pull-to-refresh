@@ -460,10 +460,10 @@ open class ESRefreshFooterView: ESRefreshComponent {
             return
         }
         self.animator.refreshAnimationEnd(view: self)
-        super.stop()
         // Back state
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
         }, completion: { (finished) in
+            super.stop()
             if self.noMoreData == false {
                 self.animator.refresh(view: self, stateDidChange: .pullToRefresh)
             }
